@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: application-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: example-server
+    spec:
+      containers:
+        - name: application-example
+          image: conorbro/golang-prom-example
+          ports:
+            - containerPort: 8080
